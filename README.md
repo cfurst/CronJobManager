@@ -6,7 +6,7 @@ A node-cron wrapper that manages many jobs at once. This is built using of [Nick
 Installation
 =============
 ```bash
-npm install CronJobManager
+npm install cron-job-manager
 ```
 Synopsis
 ============

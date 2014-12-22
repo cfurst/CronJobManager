@@ -1,15 +1,15 @@
 {
-  "name":"CronJobManager",
+  "name":"cron-job-manager",
   "version": "1.0.0",
   "description": "A wrapper Object for node-cron that allows you to manage multiple cron jobs at once.",
   "author":"Carl Yamamoto-Furst",
   "main": "lib/crontab_manager.js",
   "respository": {
     "type": "git",
-    "url": "https://github.com/cfurst/CronJobManager",
+    "url": "https://github.com/cfurst/CronJobManager"
   },
   "bugs": {
-    "url" : " https://github.com/cfurst/CronJobManager/issues",
+    "url" : " https://github.com/cfurst/CronJobManager/issues"
   },
   "keywords": [
   "cron",
