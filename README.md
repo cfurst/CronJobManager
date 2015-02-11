@@ -120,17 +120,5 @@ To check to see if a job exists with a specific key use the *exists* function
 ```javascript
 if (manager.exists('key')) console.log("key exists");
 ```
-This is useful for when adding jobs. At this point you will need to check if a key for a job you wish to add already exists in the manager. Like so:
-```javascript
-if (! manager.exists('key')) manager.add('key', '0 * * * * *', doThisEveryMinute);
-```
-If you don't do this, you run the risk overwriting references to currently running jobs.
-
-Caveats
-===
-Need to fix this *check for the job key before you add a job* thing. If you add a job using key 'x' and then add again using key 'x', the reference to the original job stored at 'x' is lost and it could lead to run away jobs that can't be stopped. __Be Careful__ and __Don't Panic!__
-
-
-
 
 
