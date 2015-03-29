@@ -60,8 +60,7 @@ manager.add('key','* 30 * * * *', taskFunction)
 ```
 in this case with the final options object left out of the arguments, the job will be created with the defaults as per node-cron, this means the job will not start until you tell it to, there will be no completion function and the time zone  will default to whatever you have your node.js process to use. 
 
-__Be Careful!__ If you add a job using a key that already exists,  it will overwrite that job. This could be dangerous. If you add a job to a key that already exists you loose the ability to stop the original job and all access to that job is lost!
-[See exists](https://github.com/cfurst/CronJobManager/blob/master/README.md#checking-for-existing-jobs) for help with this.
+If the key you are using already exits in the manager, that key will be overwriten, the original job will stop and this one will  take its place. A warning will be printed to thel og when this happens.
 
 Starting Jobs
 ===
@@ -94,6 +93,7 @@ manager.update('key', function)() { // do this instead
 manager.update('key', '0 15 3,5,9,14,18,20 * * *') // do it on this schedule instead.
 ```
 the old job on the old schedule will be stopped, changed and started again if it was running when you called *update*. If you are just changing the function, the job will continue to use the current scheudle. If you are just changing the schedule the job will continue to use the current function.
+
 Deleting jobs
 ===
 you can delete any currently stopped or running jobs using the *deleteJob* function
@@ -120,5 +120,3 @@ To check to see if a job exists with a specific key use the *exists* function
 ```javascript
 if (manager.exists('key')) console.log("key exists");
 ```
-
-
