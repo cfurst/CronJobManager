@@ -60,7 +60,7 @@ manager.add('key','* 30 * * * *', taskFunction)
 ```
 in this case with the final options object left out of the arguments, the job will be created with the defaults as per node-cron, this means the job will not start until you tell it to, there will be no completion function and the time zone  will default to whatever you have your node.js process to use. 
 
-If the key you are using already exits in the manager, that key will be overwriten, the original job will stop and this one will  take its place. A warning will be printed to thel og when this happens.
+If the key you are using already exits in the manager, that key will be overwriten, the original job will stop and this one will  take its place. A warning will be printed to the log when this happens.
 
 Starting Jobs
 ===
