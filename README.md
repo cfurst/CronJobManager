@@ -11,7 +11,7 @@ npm install cron-job-manager
 Synopsis
 ============
 ```javascript
-var CronJobManager = require('crontab_manager'),
+var CronJobManager = require('cron-job-manager'),
 manager = new CronJobManager( // this creates a new manager and adds the arguments as a new job.
 'a_key_string_to_call_this_job',
 '0 30 * * * *', // the crontab schedule
