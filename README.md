@@ -42,14 +42,14 @@ var manager1 = new CronJobManager('a key to identify the job',
   taskFunction,
   {
     start: true, 
-    completion: taskCompleteFunction, 
+    onComplete: taskCompleteFunction, 
     timeZone:"Australia/Sydney"
   }),
 manager2 = new CronJobManager();
 ```
 the final options object is optional, these are options that are past to node-cron and they include the following:
   * start: true/false
-  * completion: function - runs when the job is stopped
+  * onComplete: function - runs when the job is stopped
   * timeZone: MUST have time installed for this work - see [the node-cron readme](https://github.com/ncb000gt/node-cron/blob/master/README.md) for more details.
 
 Adding jobs
