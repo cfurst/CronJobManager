@@ -1,6 +1,6 @@
 {
   "name": "cron-job-manager",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A wrapper Object for node-cron that allows you to manage multiple cron jobs at once.",
   "author": "Carl Yamamoto-Furst",
   "main": "lib/crontab_manager.js",
@@ -18,6 +18,9 @@
   ],
   "dependencies": {
     "cron": "1.0.5"
+  },
+  "scripts": {
+	  "test": "node ./tests/CronJobManagerTestRunner.js"
   },
   "license": "MIT"
 }
