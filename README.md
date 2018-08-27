@@ -8,6 +8,13 @@ Installation
 ```bash
 npm install cron-job-manager
 ```
+Testing
+===========
+```bash
+npm test
+```
+Any assertion that fails should throw an uncaught error.
+
 Synopsis
 ============
 ```javascript
@@ -15,23 +22,23 @@ var CronJobManager = require('cron-job-manager'),
 manager = new CronJobManager( // this creates a new manager and adds the arguments as a new job.
 'a_key_string_to_call_this_job',
 '0 30 * * * *', // the crontab schedule
-function() { console.log("tick - what should be executed?") },
+() => { console.log("tick - what should be executed?") },
 {
 // extra options.. 
 // see https://github.com/ncb000gt/node-cron/blob/master/README.md for all available
   start:true,
   timeZone:"America/Los_Angeles",
-  completion: function() {console.log("a_key_string_to_call_this_job has stopped....")}
+  onComplete: () => {console.log("a_key_string_to_call_this_job has stopped....")}
 } 
 );
-manager.add('next_job', '0 40 * * * *', function() { console.log('tick...')});
+manager.add('next_job', '0 40 * * * *', () => { console.log('tick...')});
 manager.start('next_job');
 manager.stop('a_key_string_to_call_this_job');
 manager.exists('next_job') //true
 manger.update('a_key_string_to_call_this_job', 
   "0 */2 * * * *", 
-  function() {console.log("now running this job every two minutes, using this function..."});
-console.log("current jobs are: " + manager);
+  () => {console.log("now running this job every two minutes, using this function..."});
+console.log(\`current jobs are: ${manager}\`);
 ```
 Create a Manager
 ===
@@ -58,7 +65,7 @@ jobs are added with arguments similar to the above with the *add* function:
 ```javascript
 manager.add('key','* 30 * * * *', taskFunction)
 ```
-in this case with the final options object left out of the arguments, the job will be created with the defaults as per node-cron, this means the job will not start until you tell it to, there will be no completion function and the time zone  will default to whatever you have your node.js process to use. 
+in this case, with the final options object left out of the arguments, the job will be created with the defaults as per node-cron, this means the job will not start until you tell it to, there will be no completion function and the time zone  will default to whatever you have your node.js process set to use. 
 
 If the key you are using already exits in the manager, that key will be overwriten, the original job will stop and this one will  take its place. A warning will be printed to the log when this happens.
 
@@ -86,9 +93,9 @@ Updating jobs
 ===
 You may want to change the task, time or both of any job during execution. You can do so using the *update* function
 ```javascript
-manager.update('key', '0 15 3,5,9,14,18,20 * * *', function() {// do this instead on this new schedule
+manager.update('key', '0 15 3,5,9,14,18,20 * * *', () => {// do this instead on this new schedule
 });
-manager.update('key', function)() { // do this instead 
+manager.update('key', () => { // do this instead 
 });
 manager.update('key', '0 15 3,5,9,14,18,20 * * *') // do it on this schedule instead.
 ```
@@ -106,7 +113,7 @@ Viewing jobs
 ===
 if you want to see what jobs you have set up, you can just pass your manager as a string. It will display a formatted list of jobs, and their crontabs, and if they have a function to run.
 ```javascript
-console.log("I got the current jobs: " + manager)
+console.log(\`I got the current jobs: ${manager}\`)
 ```
 If you need more details or would like to pass the string somewhere else you can use the *listCrons* function
 ```javascript
