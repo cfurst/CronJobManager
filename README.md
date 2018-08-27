@@ -38,7 +38,7 @@ manager.exists('next_job') //true
 manger.update('a_key_string_to_call_this_job', 
   "0 */2 * * * *", 
   () => {console.log("now running this job every two minutes, using this function..."});
-console.log(\`current jobs are: ${manager}\`);
+console.log(`current jobs are: ${manager}`);
 ```
 Create a Manager
 ===
@@ -113,7 +113,7 @@ Viewing jobs
 ===
 if you want to see what jobs you have set up, you can just pass your manager as a string. It will display a formatted list of jobs, and their crontabs, and if they have a function to run.
 ```javascript
-console.log(\`I got the current jobs: ${manager}\`)
+console.log(`I got the current jobs: ${manager}`)
 ```
 If you need more details or would like to pass the string somewhere else you can use the *listCrons* function
 ```javascript
