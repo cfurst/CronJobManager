@@ -11,7 +11,7 @@ npm install cron-job-manager
 Testing
 ===========
 ```bash
-npm test
+npm test cron-job-manager
 ```
 Any assertion that fails should throw an uncaught error.
 
