@@ -20,7 +20,7 @@
     "cron": "1.0.5"
   },
   "scripts": {
-	  "tests": "node ./tests/CronJobManagerTestRunner.js"
+	  "test": "node ./tests/CronJobManagerTestRunner.js"
   },
   "license": "MIT"
 }

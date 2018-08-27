@@ -2,9 +2,11 @@
  * 
  */
 let tests = {
-                'add' : './add',
+               'add' : './add',
                 'constructor' : './constructor' ,
-                'job deletion': './delete'
+                'job deletion': './delete',
+                'update job': './update',
+                'start'     : './startStop'
 };
 
 for (test in tests) {

@@ -13,8 +13,11 @@ exports.test = () => {
         })
         
         jobmanager.start('jobid');
+        jobmanager.add('newJob', date, () => {console.log("added a second job...")})
+        
+        console.assert(jobmanager.exists('newJob') && jobmanager.exists('jobid'), `An added job is missing: ${jobmanager}`)
     } catch (e) {
-        assert(false, " Well... the add test failed...");
+        console.assert(false, `Well... the add test failed...${e}`);
         console.error(e);
     }
 }
