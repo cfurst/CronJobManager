@@ -14,7 +14,8 @@
   "keywords": [
     "cron",
     "cronjob",
-    "jobmanager"
+    "jobmanager",
+    "crontab"
   ],
   "dependencies": {
     "cron": "1.0.5"
