@@ -18,7 +18,7 @@
     "crontab"
   ],
   "dependencies": {
-    "cron": "1.0.5"
+    "cron": "1.8.2"
   },
   "scripts": {
     "test": "node ./tests/CronJobManagerTestRunner.js"
