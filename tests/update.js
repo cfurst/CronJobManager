@@ -15,7 +15,7 @@ exports.test = () => {
   //update the tab - Date;
   let testDate = new Date('2018-08-24T09:57:22-0400');
   cronTab.update('updateTest', testDate);
-  console.assert(/Fri Aug 24 2018 09\:57\:22 GMT-0400 \(EDT\)/.test(cronTab), `Could not find updated Crontab date! ${cronTab}`);
+  console.assert(/Fri Aug 24 2018 09\:57\:22 GMT-0400/.test(cronTab), `Could not find updated Crontab date! ${cronTab}`);
   
   //update the task
   let newFunc = function() {
