@@ -1,7 +1,7 @@
 CronJobManager
 ==============
 
-A node-cron wrapper that manages many jobs at once. This is built using of [Nick Campbell's node-cron fork](https://github.com/ncb000gt/node-cron).
+A node-cron wrapper that manages many jobs at once. This is built using  [cron](https://www.npmjs.com/package/cron) as the underlying cron lib.
 
 Installation
 =============
@@ -25,7 +25,7 @@ manager = new CronJobManager( // this creates a new manager and adds the argumen
 () => { console.log("tick - what should be executed?") },
 {
 // extra options.. 
-// see https://github.com/ncb000gt/node-cron/blob/master/README.md for all available
+// see https://www.npmjs.com/package/cron for all available
   start:true,
   timeZone:"America/Los_Angeles",
   onComplete: () => {console.log("a_key_string_to_call_this_job has stopped....")}
