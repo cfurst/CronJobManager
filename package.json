@@ -23,5 +23,6 @@
   "scripts": {
     "test": "node ./tests/CronJobManagerTestRunner.js"
   },
+  "types": "./lib/crontab_manager.d.ts",
   "license": "MIT"
 }
