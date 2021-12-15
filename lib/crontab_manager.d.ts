@@ -4,12 +4,15 @@ declare class CrontabManager {
     add(key: string, tab: CrontabTypes.Tab, task: () => void, options?: CrontabTypes.Options): void
     update(...args: any): void
     deleteJob(key: string): void
+    deleteAll(): void
     start(key: string): void
+    startAll(): void
     stop(key: string): void
     stopAll(): void
     toString(): string
     listCrons(): string
     exists(tabKey: string): boolean
+    fireOnTick(): any
 }
 
 declare namespace CrontabTypes {

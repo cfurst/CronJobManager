@@ -6,7 +6,8 @@ let tests = {
                 'constructor' : './constructor' ,
                 'job deletion': './delete',
                 'update job': './update',
-                'start'     : './startStop'
+                'start'     : './startStop',
+                'fireOnTick': './fireOnTick'
 };
 
 for (test in tests) {

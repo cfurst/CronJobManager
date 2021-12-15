@@ -10,5 +10,7 @@ exports.test = () => {
     console.assert(`${jobManager}`.search('Running'), `Couldn't find a Running state for started job: ${jobManager}`);
 
     jobManager.stop('newJob');
+    // TODO: start/stop all
+
 };
 
