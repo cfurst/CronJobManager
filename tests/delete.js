@@ -13,5 +13,5 @@ exports.test = () => {
     crontab1.stopAll()
     crontab1.deleteAll()
     console.assert(! crontab1.jobs.deleteMe, "The deleteMe job was not deleted!!! %s", crontab1);
-    console.assert(! (crontab1.exists("deleteEverything") || crontab1.exists("deleteEverythingMeansEverything")), "Couldn't delete all jobs!", crontab1)
+    console.assert(! (crontab1.exists("deleteEverything") || crontab1.exists("deleteEverythingMeansEverything")), "Couldn't delete all jobs! %s", crontab1)
 }
