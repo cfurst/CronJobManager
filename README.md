@@ -95,6 +95,13 @@ manager.stopAll()
 ```
 Any arguments are ignored.
 
+Starting All Jobs
+===
+If you want to set up jobs and then start them all at once use *startAll*
+```javascript
+manager.startAll()
+```
+
 Updating jobs
 ===
 You may want to change the task, time or both of any job during execution. You can do so using the *update* function
@@ -133,3 +140,11 @@ To check to see if a job exists with a specific key use the *exists* function
 ```javascript
 if (manager.exists('key')) console.log("key exists");
 ```
+
+Firing on the next event loop
+===
+The cron library underneath this has a function that will allow a job entry to fire when needed regardless of the schedule. Execute any job you need ad hoc using *fireOnTick*:
+```javascript
+manager.fireOnTick(key)
+```
+If the key exists in the manager it will execute the function attached to that job key, otherwise it's a NOOP and no error will be thrown.Í
