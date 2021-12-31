@@ -35,7 +35,7 @@ manager.add('next_job', '0 40 * * * *', () => { console.log('tick...')});
 manager.start('next_job');
 manager.stop('a_key_string_to_call_this_job');
 manager.exists('next_job') //true
-manger.update('a_key_string_to_call_this_job', 
+manager.update('a_key_string_to_call_this_job', 
   "0 */2 * * * *", 
   () => {console.log("now running this job every two minutes, using this function..."});
 console.log(`current jobs are: ${manager}`);
