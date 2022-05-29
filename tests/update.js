@@ -25,11 +25,17 @@ exports.test = () => {
   
   cronTab.update('updateTest', newFunc);
   console.assert(`${cronTab}`.search("double wooo"), "coulnd't the update task when updating just the task!");
-  
+  console.log(cronTab.toString())
   //update the tab and the task - we know the update tab works. We just need to make sure the task gets updated.
   cronTab.update('updateTest', testDate, () => {console.log("A New Task!")});
   
   console.assert(`${cronTab}`.search("A New Task!"), "could't find the updated task when updating tab and task!");
-   
+
+  let thirtyOne = 31
+  cronTab.add(thirtyOne.toString(),new Date(), () => {console.log("new Job...")})
+  cronTab.update(thirtyOne.toString(), new Date(), () => {console.log("updated 31...")})
+  console.log(cronTab.toString())
+  console.assert(`${cronTab}`.search("updated 31..."), "coulnd't the update task when updating a task with a literal number coerced to string.");
+
   
 };
