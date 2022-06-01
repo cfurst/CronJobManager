@@ -2,12 +2,12 @@
  * 
  */
 let tests = {
-               'add' : './add',
-                'constructor' : './constructor' ,
-                'job deletion': './delete',
+               //'add' : './add',
+               // 'constructor' : './constructor' ,
+              //  'job deletion': './delete',
                 'update job': './update',
-                'start'     : './startStop',
-                'fireOnTick': './fireOnTick'
+             //   'start'     : './startStop',
+             //   'fireOnTick': './fireOnTick'
 };
 
 for (test in tests) {

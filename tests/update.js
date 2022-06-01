@@ -7,6 +7,7 @@ cronTab = new CronJobManager();
 exports.test = () => {
     let currDate = new Date();
   cronTab.add('updateTest', currDate, () => {console.log("update Cron... wooo!")});
+
   //update the tab - string
   let tabString = '0 */2 * * * *';
   cronTab.update('updateTest', tabString);
@@ -35,7 +36,21 @@ exports.test = () => {
   cronTab.add(thirtyOne.toString(),new Date(), () => {console.log("new Job...")})
   cronTab.update(thirtyOne.toString(), new Date(), () => {console.log("updated 31...")})
   console.log(cronTab.toString())
-  console.assert(`${cronTab}`.search("updated 31..."), "coulnd't the update task when updating a task with a literal number coerced to string.");
+  console.assert(`${cronTab}`.search("updated 31..."), "couldn't the update task when updating a task with a number literal coerced to string.");
+  let additionalOptions = {utcOffset: "-5", onComplete: () => {console.log("I'm done working")},start: true}
+   cronTab.add("test update with additional", "* * * * * *", () => {console.log("shhh.. I'm working!")}, additionalOptions )
+   cronTab.update("test update with additional", () => {console.log("shh... I'm still working!")})
+   console.log(`${cronTab.jobs["test update with additional"].unrefTimeout}`)
+     [
 
+                                   "cronTime", //this preserves the crontab itself, timeZone, utcOffset.
+                                   "context",
+                                   "onComplete",
+                                   "unrefTimeout"
+                               ].forEach( (key) => {
+                               console.log(key)
+                                if (key === "cronTime" && cronTab.jobs["test update with additional"][key] !== undefined && cronTab.jobs["test update with additional"][key].hasOwnProperty('utcOffset')) assert(cronTab.jobs["test update with additional"][key].utcOffset === additionalOptions.utcOffset)
+                                else if (cronTab.jobs["test update with additional"].hasOwnProperty(key) && additionalOptions.hasOwnProperty(key)) assert(cronTab.jobs["test update with additional"][key] === additionalOptions[key])
+                               })
   
 };
