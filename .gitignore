@@ -4,4 +4,4 @@ node_modules*
 *.ipr
 *.iws
 *.suo
-.vs
+.vs*
