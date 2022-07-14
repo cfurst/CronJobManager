@@ -1,6 +1,6 @@
 export = CrontabManager;
 declare class CrontabManager {
-    constructor(key: string, tab: CrontabTypes.Tab, task: () => void, options?: CrontabTypes.Options)
+    constructor(key?: string, tab?: CrontabTypes.Tab, task?: () => void, options?: CrontabTypes.Options)
     add(key: string, tab: CrontabTypes.Tab, task: () => void, options?: CrontabTypes.Options): void
     update(...args: any): void
     deleteJob(key: string): void
