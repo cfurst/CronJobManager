@@ -22,7 +22,7 @@ declare namespace CrontabTypes {
         onTick?: () => void
         onComplete?: () => void
         start?: boolean
-        timezone?: string
+        timeZone?: string
         context?: any
         runOnInit?: boolean
         utcOffset?: string
